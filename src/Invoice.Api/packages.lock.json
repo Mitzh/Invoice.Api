@@ -1,12 +1,12 @@
 {
   "version": 1,
   "dependencies": {
-    "net8.0": {
+    "net10.0": {
       "Mitzh.Invoice.Core": {
         "type": "Direct",
-        "requested": "[2.0.0, )",
-        "resolved": "2.0.0",
-        "contentHash": "Xu7YqrJgPPL5YuuLVWWDXCYVoYCHdymIEaLn/RA8nI+kRtWBPaR/vo3X0s04ECj1GQEuldxd46+ad4fOtL+DOA==",
+        "requested": "[3.0.0, )",
+        "resolved": "3.0.0",
+        "contentHash": "yV04qTTIvjGaRWfYp5qaaTgQphmkwgmYfHwKQ6pFz8CKuMtDE6BNTiQkysXajYXwbPDAg9OHTpgrdkXVyKCGGQ==",
         "dependencies": {
           "PdfPig": "0.1.14",
           "RapidOcrNet": "4.2.0"
@@ -47,7 +47,6 @@
         "resolved": "1.29.0",
         "contentHash": "jLy5PtzvRQCBFOczzfRY7zpuMVUyLwjO0Jsdd8MBZdmnPIqx5vW9cYDNyCqkrYpwkof8GlqBVaEUMWrMWRtvuw==",
         "dependencies": {
-          "System.Memory": "4.5.5",
           "System.Numerics.Tensors": "9.0.0"
         }
       },
@@ -117,11 +116,6 @@
         "type": "Transitive",
         "resolved": "6.9.0",
         "contentHash": "0OxlWBFLl2gUESZX/K7QCTz9KctKy0VxHTvLIBcyWGD4z/fv5MCMW02qzYGcReLJr4yBnNDRzApKtLh6oBpe9A=="
-      },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
       },
       "System.Numerics.Tensors": {
         "type": "Transitive",

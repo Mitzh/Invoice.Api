@@ -5,7 +5,7 @@ $log=Join-Path $root 'artifacts/http-checks'
 [IO.Directory]::CreateDirectory($log)|Out-Null
 $env:ASPNETCORE_ENVIRONMENT='Production'
 $env:Limits__ApiKey='local-smoke-key'
-$assembly=Join-Path $root 'src/Invoice.Api/bin/Release/net8.0/Mitzh.Invoice.Api.dll'
+$assembly=Join-Path $root 'src/Invoice.Api/bin/Release/net10.0/Mitzh.Invoice.Api.dll'
 if(!(Test-Path $assembly)){throw 'Build Invoice.Api.sln -c Release before HTTP checks.'}
 $process=Start-Process dotnet -ArgumentList @($assembly,'--urls',"http://127.0.0.1:$Port") -PassThru -WindowStyle Hidden -RedirectStandardOutput (Join-Path $log 'stdout.log') -RedirectStandardError (Join-Path $log 'stderr.log')
 $client=[Net.Http.HttpClient]::new()

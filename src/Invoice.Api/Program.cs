@@ -98,7 +98,7 @@ app.Use(async (ctx, next) =>
 
     await next(ctx);
 });
-app.MapGet("/health", (InvoiceRecognizer p) => ApiResult.Ok(new { status = "ok", ocrConfigured = p.OcrConfigured, verification = "NotConfigured", storage = "ProcessMemory", version = "2.0.0" })).WithTags("服务状态").WithSummary("检查服务与 OCR 配置");
+app.MapGet("/health", (InvoiceRecognizer p) => ApiResult.Ok(new { status = "ok", ocrConfigured = p.OcrConfigured, verification = "NotConfigured", storage = "ProcessMemory", version = "3.0.0" })).WithTags("服务状态").WithSummary("检查服务与 OCR 配置");
 app.MapGet("/api/jobs/{id:guid}", (Guid id, JobService jobs) => jobs.Get(id) is { } job ? job.State == "Failed" ? ApiResult.Error(job.Error, 422) : ApiResult.Ok(job) : ApiResult.NotFound()).WithTags("后台任务（可选）").WithSummary("查询异步任务及解析结果").Produces<ApiResponse<JobView>>().Produces<ApiResponse<object>>(404).Produces<ApiResponse<object>>(422);
 app.MapGet("/api/jobs/{id:guid}/verification", (Guid id, JobService jobs) => jobs.Get(id) != null ? ApiResult.Ok(new { state = "NotConfigured", message = "离线部署未接入授权验真接口；解析及金额检查不代表税务验真。" }) : ApiResult.NotFound()).WithTags("后台任务（可选）").WithSummary("查询验真配置状态（当前未接入）");
 // Simple call: upload a file, receive InvoiceModel directly. Background jobs remain optional.

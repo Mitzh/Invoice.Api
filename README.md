@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/Mitzh/Invoice.Api/actions/workflows/ci.yml/badge.svg)](https://github.com/Mitzh/Invoice.Api/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/v/Mitzh.Invoice.Api.svg)](https://www.nuget.org/packages/Mitzh.Invoice.Api)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Powered by Codex](https://img.shields.io/badge/Powered%20by-Codex-412991)](https://openai.com/codex/)
 
@@ -10,14 +10,14 @@
 
 代码命名空间：`Mitzh.Invoice.Api`。本项目拥有独立目录、解决方案、Git 仓库和发布流程。
 
-基于 ASP.NET Core 8 的离线发票识别服务，提供 Swagger、同步文件/流、XML 内容及可选后台任务接口。以 **.NET 工具包**发布，命令名 `mitzh-invoice-api`，不是可引用的类库包；在 C# 中嵌入解析请安装 `Mitzh.Invoice.Core`。
+基于 ASP.NET Core 10 的离线发票识别服务，提供 Swagger、同步文件/流、XML 内容及可选后台任务接口。以 **.NET 工具包**发布，命令名 `mitzh-invoice-api`，不是可引用的类库包；在 C# 中嵌入解析请安装 `Mitzh.Invoice.Core`。
 
 ## 安装与启动
 
-本机需有 .NET 8 SDK（工具安装）和 ASP.NET Core 8 Runtime（服务运行）。
+本机需有 .NET 10 SDK（工具安装）和 ASP.NET Core 10 Runtime（服务运行）。
 
 ```powershell
-dotnet tool install --global Mitzh.Invoice.Api --version 2.0.0
+dotnet tool install --global Mitzh.Invoice.Api --version 3.0.0
 $env:Limits__ApiKey = 'replace-with-your-own-key'
 mitzh-invoice-api --urls http://127.0.0.1:5088
 ```
@@ -88,7 +88,7 @@ public sealed record InvoiceResponse<T>(int Code, string Msg, T Data);
 
 ## 独立源码构建
 
-通过 NuGet 引用 [Mitzh.Invoice.Core 2.0.0](https://www.nuget.org/packages/Mitzh.Invoice.Core/2.0.0)，不包含 Core 源码，也不依赖相邻目录。API 自身命名空间为 `Mitzh.Invoice.Api`，调用发票模型时引入 `Mitzh.Invoice.Core`。
+通过 NuGet 引用 [Mitzh.Invoice.Core 3.0.0](https://www.nuget.org/packages/Mitzh.Invoice.Core/3.0.0)，不包含 Core 源码，也不依赖相邻目录。API 自身命名空间为 `Mitzh.Invoice.Api`，调用发票模型时引入 `Mitzh.Invoice.Core`。
 
 ```powershell
 dotnet restore Invoice.Api.sln --locked-mode
@@ -102,3 +102,7 @@ dotnet pack src/Invoice.Api -c Release -o artifacts
 ## 版本迁移
 
 2.0.0 将原 `using Mitzh;` 拆分为各项目专属命名空间。类库调用者改用 `using Mitzh.Invoice.Core;`；API 类型位于 `Mitzh.Invoice.Api`。现有 HTTP 路由和 JSON 字段保持兼容。1.0.0 已发布版本不会被覆盖。
+
+## .NET 10 升级（3.0.0）
+
+3.0.0 仅面向 `net10.0`，需要 .NET 10 SDK / Runtime；Api 需要 ASP.NET Core 10 Runtime。原有命名空间、调用签名、HTTP 路由和 JSON 返回格式保持不变。Api 通过 NuGet 引用 Core 3.0.0，两个仓库继续独立构建。`global.json` 限定使用 .NET 10 SDK。需要继续使用 .NET 8 的应用可保留 2.x，不应直接升级到 3.x。
