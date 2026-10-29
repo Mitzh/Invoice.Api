@@ -19,6 +19,7 @@ jobs:
             8.0.x
             10.0.x
       - run: dotnet restore Invoice.Api.sln --locked-mode
+      - run: dotnet build Invoice.Api.sln -c Release --no-restore
       - name: Install PDF renderer for scanned-PDF checks
         run: choco install poppler --yes --no-progress
       - shell: pwsh
