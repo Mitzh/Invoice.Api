@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <RootNamespace>Mitzh.Invoice.Api</RootNamespace>
+    <Version>2.0.0</Version>
+    <Authors>Mitzh</Authors>
+    <Company>Mitzh</Company>
+    <RepositoryUrl>https://github.com/Mitzh/Invoice.Api</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/Mitzh/Invoice.Api</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>invoice;ofd;pdf;xml;ocr;rapidocr;railway;offline</PackageTags>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>
