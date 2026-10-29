@@ -6,7 +6,7 @@
         "type": "Direct",
         "requested": "[2.0.0, )",
         "resolved": "2.0.0",
-        "contentHash": "BRVRs+lXSgBQMeUCAp2ix2JANSZBhj5R8SGAcbjfoMhXDMLlREonCodhxStw+7fMp2XWDg/RrdKJDJ+VKLlyDQ==",
+        "contentHash": "Xu7YqrJgPPL5YuuLVWWDXCYVoYCHdymIEaLn/RA8nI+kRtWBPaR/vo3X0s04ECj1GQEuldxd46+ad4fOtL+DOA==",
         "dependencies": {
           "PdfPig": "0.1.14",
           "RapidOcrNet": "4.2.0"
